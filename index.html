@@ -1,0 +1,357 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <style type="text/css">
+
+ body{margin: auto;font-family: "Lato", sans-serif;}
+ #slider {
+  background-image: url(img/img-4.jpg);
+  background-size: cover;
+  background-position: center;
+  /*IMPORTANTE*/
+  height: 100vh;
+  
+}
+#bg-overlay {
+  background-color: red;
+     background-color: rgba(0,0,0,0.6); 
+
+     position: absolute; 
+     height: 100vh;
+     
+      top: 0; 
+     right: 0; 
+     left: 0; 
+    bottom: 0; 
+}
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+ #slide-title {
+    font-size: 75px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color: white;
+    font-weight: 500;
+}
+#slide-subtitle {
+    font-size: 25px;
+    color: #989c99;
+
+    line-height: 26px;
+    margin-top: -40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style the header */
+.header {
+  
+  position: fixed;
+   top: 0;
+  width: 100%;
+  color: white;
+   transition: 0.8s;
+   padding: 10px 16px;
+   padding-left: 10px;
+   padding-right: 10px;
+
+}
+
+
+
+ul{
+    list-style-type: none;    
+    margin: 0;
+    padding: 0;
+  }
+ul li{float: left;}
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+ul li a:hover:not(.active) {background-color: transparent;}
+ul li a.active {background-color: #4CAF50;}
+.right {float: right;}
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+      background-color: #222328;
+  top: 0;
+  width: 100%;
+   padding: 0px 4px;
+    /* padding-left: 50px;*/
+    
+}
+.thumb{    
+     padding: 10px;
+      width: 20%;
+      height: auto;
+     min-width: 350px;
+
+ /* height: 400px;
+  background-color: red;
+    background-image: url(img/img-4.jpg);
+     background-size: cover;
+  background-position: center;*/
+     /* display: table-cell;*/
+    }
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
+.sticky ul li a:hover:not(.active) {background-color: #111;}
+.rwd-break{display: none;}
+
+@media only screen and (max-width: 700px) { 
+ 
+    .thumb{    
+     padding: 10px;
+      width: 40%;
+      height: auto;
+       min-width: 100px;
+  
+    }
+}
+@media only screen and (max-width: 600px) { 
+  .rwd-break{display: block;}
+    h1 {
+        white-space: nowrap;
+    }
+     #slide-title {
+    font-size: 45px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color: white;
+    font-weight: 500;
+}
+#slide-subtitle {
+    font-size: 15px;
+    color: white;
+    line-height: 26px;
+}
+    .thumb{    
+     padding: 10px;
+      width: 90%;
+      height: auto;
+       min-width: 100px;
+  
+    }
+}
+
+
+/*------------------------------------------------------------------------------------------------------*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+ </style>
+</head>
+<body>
+  
+<div id="slider"><div id="bg-overlay"></div>
+
+<div id="container">
+  <nav class="header" id="myHeader">   <!-- Titulo -->
+
+ 
+<ul><li ><a href="#about">Titulo</a></li></ul>
+ <ul class="right">
+  <li><a class="active" href="default.asp">Home</a></li>
+  <li><a href="news.asp">News</a></li>
+  <li><a href="about.asp">About</a></li>
+</ul>
+  
+</nav>
+ <!--  <div ><h2>My Header</h2></div> -->
+<div style="text-align:  center;">
+  <p id="slide-title"> Portfolio<br class="rwd-break"/> de <br class="rwd-break"/>Yanina Filardi </p>
+  <p id="slide-subtitle">ilustradora / profesora de arte/ hermana</p>
+</div>
+</div>
+</div>
+<div style="text-align:  center;"><h2>Trabajos:</h2></div>
+<div style="text-align:  center;">
+  <a href="img/dibujos/1.jpg" target="_blank"><img src="img/thumb/1.jpg" class="thumb"></a>
+  <a href="img/dibujos/2.jpg" target="_blank"><img src="img/thumb/2.jpg" class="thumb"></a>
+  <a href="img/dibujos/3.jpg" target="_blank"><img src="img/thumb/3.jpg" class="thumb"></a>
+  <a href="img/dibujos/4.jpg" target="_blank"><img src="img/thumb/4.jpg" class="thumb"></a>
+  <a href="img/dibujos/5.jpg" target="_blank"><img src="img/thumb/5.jpg" class="thumb"></a>
+  <a href="img/dibujos/6.jpg" target="_blank"><img src="img/thumb/6.jpg" class="thumb"></a>
+ 
+</div>
+<div style="text-align:  center;"><h2>Trabajos:</h2></div>
+<div style="text-align:  center;">
+  <a href="img/dibujos/1.jpg" target="_blank"><img src="img/thumb/1.jpg" class="thumb"></a>
+  <a href="img/dibujos/2.jpg" target="_blank"><img src="img/thumb/2.jpg" class="thumb"></a>
+  <a href="img/dibujos/3.jpg" target="_blank"><img src="img/thumb/3.jpg" class="thumb"></a>
+  <a href="img/dibujos/4.jpg" target="_blank"><img src="img/thumb/4.jpg" class="thumb"></a>
+  <a href="img/dibujos/5.jpg" target="_blank"><img src="img/thumb/5.jpg" class="thumb"></a>
+  <a href="img/dibujos/6.jpg" target="_blank"><img src="img/thumb/6.jpg" class="thumb"></a>
+ 
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+</body>
+<script type="text/javascript">
+// When the user scrolls the page, execute myFunction 
+window.onscroll = function() {myFunction()};
+
+// Get the header
+var header = document.getElementById("myHeader");
+
+// Get the offset position of the navbar
+var sticky = header.offsetTop;
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= 10) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+
+
+</html>
